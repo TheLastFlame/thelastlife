@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
-import 'main_screen/main_screen.dart';
-import 'main_screen/subpages/achievements_page/achievements_page.dart';
-import 'main_screen/subpages/settings_page/settings_page.dart';
+import 'pages/main_menu/main_menu.dart';
+import 'pages/achievements_page/achievements_page.dart';
+import 'pages/settings_page/settings_page.dart';
 import 'style/transion.dart';
 
 final router = GoRouter(

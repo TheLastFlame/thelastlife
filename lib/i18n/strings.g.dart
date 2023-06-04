@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 12 (6 per locale)
+/// Strings: 48 (24 per locale)
 ///
-/// Built on 2023-06-04 at 14:08 UTC
+/// Built on 2023-06-04 at 19:49 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -147,9 +147,20 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsAchievmentsPageEn achievmentsPage = _StringsAchievmentsPageEn._(_root);
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
-	late final _StringsMainScreenEn mainScreen = _StringsMainScreenEn._(_root);
+	late final _StringsMainMenuEn mainMenu = _StringsMainMenuEn._(_root);
 	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
+}
+
+// Path: achievmentsPage
+class _StringsAchievmentsPageEn {
+	_StringsAchievmentsPageEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Your achievments';
 }
 
 // Path: common
@@ -162,9 +173,9 @@ class _StringsCommonEn {
 	String get loading => 'Loading';
 }
 
-// Path: mainScreen
-class _StringsMainScreenEn {
-	_StringsMainScreenEn._(this._root);
+// Path: mainMenu
+class _StringsMainMenuEn {
+	_StringsMainMenuEn._(this._root);
 
 	final _StringsEn _root; // ignore: unused_field
 
@@ -172,6 +183,7 @@ class _StringsMainScreenEn {
 	String get play => 'New Life';
 	String get setting => 'Setting';
 	String get achievements => 'Achievement';
+	String get nowPlaying => 'Now playing';
 }
 
 // Path: settings
@@ -181,8 +193,24 @@ class _StringsSettingsEn {
 	final _StringsEn _root; // ignore: unused_field
 
 	// Translations
+	String get title => 'Settings';
 	String get volume => 'Volume';
 	String get languag => 'Language';
+	String get general_settings => 'General';
+	String get language => 'Language';
+	String get visual_settings => 'Visual';
+	String get theme_mode => 'Theme';
+	String get system_theme => 'System';
+	String get dark_theme => 'Dark';
+	String get light_theme => 'Light';
+	String get seed_color => 'Colors';
+	String get dynamic_color => 'Dynamic';
+	String get static_color => 'Static';
+	String get static_color_picker => 'Accent colors';
+	String get account => 'Account';
+	String get logout => 'Logout';
+	String get russian => 'Русский';
+	String get english => 'English';
 }
 
 // Path: <root>
@@ -210,9 +238,20 @@ class _StringsRu implements _StringsEn {
 	@override late final _StringsRu _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsAchievmentsPageRu achievmentsPage = _StringsAchievmentsPageRu._(_root);
 	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
-	@override late final _StringsMainScreenRu mainScreen = _StringsMainScreenRu._(_root);
+	@override late final _StringsMainMenuRu mainMenu = _StringsMainMenuRu._(_root);
 	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
+}
+
+// Path: achievmentsPage
+class _StringsAchievmentsPageRu implements _StringsAchievmentsPageEn {
+	_StringsAchievmentsPageRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Ваши достижения';
 }
 
 // Path: common
@@ -225,9 +264,9 @@ class _StringsCommonRu implements _StringsCommonEn {
 	@override String get loading => 'Загрузка';
 }
 
-// Path: mainScreen
-class _StringsMainScreenRu implements _StringsMainScreenEn {
-	_StringsMainScreenRu._(this._root);
+// Path: mainMenu
+class _StringsMainMenuRu implements _StringsMainMenuEn {
+	_StringsMainMenuRu._(this._root);
 
 	@override final _StringsRu _root; // ignore: unused_field
 
@@ -235,6 +274,7 @@ class _StringsMainScreenRu implements _StringsMainScreenEn {
 	@override String get play => 'Новая жизнь';
 	@override String get setting => 'Настройки';
 	@override String get achievements => 'Достижения';
+	@override String get nowPlaying => 'Сейчас играет';
 }
 
 // Path: settings
@@ -244,8 +284,24 @@ class _StringsSettingsRu implements _StringsSettingsEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
+	@override String get title => 'Настройки';
 	@override String get volume => 'Громкость';
 	@override String get languag => 'Язык';
+	@override String get general_settings => 'Основные';
+	@override String get language => 'Язык';
+	@override String get visual_settings => 'Визуал';
+	@override String get theme_mode => 'Тема';
+	@override String get system_theme => 'Системная';
+	@override String get dark_theme => 'Темная';
+	@override String get light_theme => 'Светлая';
+	@override String get seed_color => 'Цвета';
+	@override String get dynamic_color => 'Динамические';
+	@override String get static_color => 'Статические';
+	@override String get static_color_picker => 'Акцентные цвета';
+	@override String get account => 'Аккаунт';
+	@override String get logout => 'Выйти из аккаунта';
+	@override String get russian => 'Русский';
+	@override String get english => 'English';
 }
 
 /// Flat map(s) containing all translations.
@@ -254,12 +310,30 @@ class _StringsSettingsRu implements _StringsSettingsEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'achievmentsPage.title': return 'Your achievments';
 			case 'common.loading': return 'Loading';
-			case 'mainScreen.play': return 'New Life';
-			case 'mainScreen.setting': return 'Setting';
-			case 'mainScreen.achievements': return 'Achievement';
+			case 'mainMenu.play': return 'New Life';
+			case 'mainMenu.setting': return 'Setting';
+			case 'mainMenu.achievements': return 'Achievement';
+			case 'mainMenu.nowPlaying': return 'Now playing';
+			case 'settings.title': return 'Settings';
 			case 'settings.volume': return 'Volume';
 			case 'settings.languag': return 'Language';
+			case 'settings.general_settings': return 'General';
+			case 'settings.language': return 'Language';
+			case 'settings.visual_settings': return 'Visual';
+			case 'settings.theme_mode': return 'Theme';
+			case 'settings.system_theme': return 'System';
+			case 'settings.dark_theme': return 'Dark';
+			case 'settings.light_theme': return 'Light';
+			case 'settings.seed_color': return 'Colors';
+			case 'settings.dynamic_color': return 'Dynamic';
+			case 'settings.static_color': return 'Static';
+			case 'settings.static_color_picker': return 'Accent colors';
+			case 'settings.account': return 'Account';
+			case 'settings.logout': return 'Logout';
+			case 'settings.russian': return 'Русский';
+			case 'settings.english': return 'English';
 			default: return null;
 		}
 	}
@@ -268,12 +342,30 @@ extension on _StringsEn {
 extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'achievmentsPage.title': return 'Ваши достижения';
 			case 'common.loading': return 'Загрузка';
-			case 'mainScreen.play': return 'Новая жизнь';
-			case 'mainScreen.setting': return 'Настройки';
-			case 'mainScreen.achievements': return 'Достижения';
+			case 'mainMenu.play': return 'Новая жизнь';
+			case 'mainMenu.setting': return 'Настройки';
+			case 'mainMenu.achievements': return 'Достижения';
+			case 'mainMenu.nowPlaying': return 'Сейчас играет';
+			case 'settings.title': return 'Настройки';
 			case 'settings.volume': return 'Громкость';
 			case 'settings.languag': return 'Язык';
+			case 'settings.general_settings': return 'Основные';
+			case 'settings.language': return 'Язык';
+			case 'settings.visual_settings': return 'Визуал';
+			case 'settings.theme_mode': return 'Тема';
+			case 'settings.system_theme': return 'Системная';
+			case 'settings.dark_theme': return 'Темная';
+			case 'settings.light_theme': return 'Светлая';
+			case 'settings.seed_color': return 'Цвета';
+			case 'settings.dynamic_color': return 'Динамические';
+			case 'settings.static_color': return 'Статические';
+			case 'settings.static_color_picker': return 'Акцентные цвета';
+			case 'settings.account': return 'Аккаунт';
+			case 'settings.logout': return 'Выйти из аккаунта';
+			case 'settings.russian': return 'Русский';
+			case 'settings.english': return 'English';
 			default: return null;
 		}
 	}

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
-import '../constants.dart';
-import '../controllers/audio/audio_contoller.dart';
-import '../controllers/audio/sfx.dart';
-import '../i18n/strings.g.dart';
+import '../../constants.dart';
+import '../../controllers/audio/audio_contoller.dart';
+import '../../controllers/audio/sfx.dart';
+import '../../i18n/strings.g.dart';
 
 class MainMenu extends StatelessWidget {
   @override
@@ -18,11 +20,24 @@ class MainMenu extends StatelessWidget {
           Expanded(
             flex: 5,
             child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(Radius.circular(appRoundRadius)),
-                color: Theme.of(context).colorScheme.primary.withOpacity(0.8),
-              ),
-            ),
+                decoration: BoxDecoration(
+                  borderRadius:const BorderRadius.all(
+                    Radius.circular(appRoundRadius),
+                  ),
+                  color: Theme.of(context).colorScheme.primary.withOpacity(0.8),
+                  gradient: const LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      Colors.blue,
+                      Colors.red,
+                    ],
+                  ),
+                ),
+                child: SvgPicture.asset(
+                  "assets/icons/logo.svg",
+                  color: Theme.of(context).colorScheme.onPrimary,
+                )),
           ),
           // Buttons
           Expanded(
@@ -31,33 +46,36 @@ class MainMenu extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const Spacer(),
                 ElevatedButton(
                   style: appElevationButtonStyle,
                   child: SizedBox(
                     width: double.infinity,
-                    child: Center(child: Text(t.mainScreen.play)),
+                    child: Center(child: Text(t.mainMenu.play)),
                   ),
                   onPressed: () {
                     AudioController.playSfx(SfxType.buttonClick);
                     context.push("/game");
                   },
                 ),
+                const Spacer(),
                 ElevatedButton(
                   style: appElevationButtonStyle,
                   child: SizedBox(
                     width: double.infinity,
-                    child: Center(child: Text(t.mainScreen.setting)),
+                    child: Center(child: Text(t.mainMenu.setting)),
                   ),
                   onPressed: () {
                     AudioController.playSfx(SfxType.buttonClick);
                     context.push("/mainMenu/settings");
                   },
                 ),
+                const Spacer(),
                 ElevatedButton(
                   style: appElevationButtonStyle,
                   child: SizedBox(
                     width: double.infinity,
-                    child: Center(child: Text(t.mainScreen.achievements)),
+                    child: Center(child: Text(t.mainMenu.achievements)),
                   ),
                   onPressed: () {
                     AudioController.playSfx(SfxType.buttonClick);
@@ -68,12 +86,13 @@ class MainMenu extends StatelessWidget {
             ),
           ),
           // Credits
-          const Expanded(
+          Expanded(
               flex: 1,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Credits"),
+                  Obx(() => Text(
+                      "${t.mainMenu.nowPlaying}:  ${AudioController.nowPlayng()}")),
                 ],
               ))
         ],

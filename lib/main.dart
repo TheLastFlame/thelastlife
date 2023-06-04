@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:thelastlife/controllers/audio/songs.dart';
 import 'package:thelastlife/controllers/settings_controller.dart';
 import 'package:thelastlife/routes.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'package:flutter_web_plugins/url_strategy.dart';
-  
+
+import 'controllers/audio/audio_contoller.dart';
 import 'i18n/strings.g.dart';
 
 Future<void> main() async {
+  await GetStorage.init('settings');
+
   var settings = Get.put(SettingsContoller());
+
+  await AudioController.init();
 
   usePathUrlStrategy();
 
@@ -36,20 +43,25 @@ void settingUpSystemUIOverlay() {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends GetView<SettingsContoller> {
   const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      locale:
-          TranslationProvider.of(context).flutterLocale, // use provideraQ  8
-      supportedLocales: AppLocaleUtils.supportedLocales,
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+    return Obx(
+      () => MaterialApp.router(
+        locale:
+            TranslationProvider.of(context).flutterLocale, // use provideraQ  8
+        supportedLocales: AppLocaleUtils.supportedLocales,
+        localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
-      theme: ThemeData(useMaterial3: true),
-      darkTheme: ThemeData.dark(useMaterial3: true),
-      routerConfig: router,
+        theme: ThemeData(useMaterial3: true),
+        darkTheme: ThemeData.dark(useMaterial3: true),
+
+        themeMode: controller.theme(),
+
+        routerConfig: router,
+      ),
     );
   }
 }
