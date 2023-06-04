@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 2 (1 per locale)
+/// Strings: 12 (6 per locale)
 ///
-/// Built on 2023-06-04 at 10:01 UTC
+/// Built on 2023-06-04 at 14:08 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -148,6 +148,8 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 
 	// Translations
 	late final _StringsCommonEn common = _StringsCommonEn._(_root);
+	late final _StringsMainScreenEn mainScreen = _StringsMainScreenEn._(_root);
+	late final _StringsSettingsEn settings = _StringsSettingsEn._(_root);
 }
 
 // Path: common
@@ -158,6 +160,29 @@ class _StringsCommonEn {
 
 	// Translations
 	String get loading => 'Loading';
+}
+
+// Path: mainScreen
+class _StringsMainScreenEn {
+	_StringsMainScreenEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get play => 'New Life';
+	String get setting => 'Setting';
+	String get achievements => 'Achievement';
+}
+
+// Path: settings
+class _StringsSettingsEn {
+	_StringsSettingsEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get volume => 'Volume';
+	String get languag => 'Language';
 }
 
 // Path: <root>
@@ -186,6 +211,8 @@ class _StringsRu implements _StringsEn {
 
 	// Translations
 	@override late final _StringsCommonRu common = _StringsCommonRu._(_root);
+	@override late final _StringsMainScreenRu mainScreen = _StringsMainScreenRu._(_root);
+	@override late final _StringsSettingsRu settings = _StringsSettingsRu._(_root);
 }
 
 // Path: common
@@ -198,6 +225,29 @@ class _StringsCommonRu implements _StringsCommonEn {
 	@override String get loading => 'Загрузка';
 }
 
+// Path: mainScreen
+class _StringsMainScreenRu implements _StringsMainScreenEn {
+	_StringsMainScreenRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get play => 'Новая жизнь';
+	@override String get setting => 'Настройки';
+	@override String get achievements => 'Достижения';
+}
+
+// Path: settings
+class _StringsSettingsRu implements _StringsSettingsEn {
+	_StringsSettingsRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get volume => 'Громкость';
+	@override String get languag => 'Язык';
+}
+
 /// Flat map(s) containing all translations.
 /// Only for edge cases! For simple maps, use the map function of this library.
 
@@ -205,6 +255,11 @@ extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'common.loading': return 'Loading';
+			case 'mainScreen.play': return 'New Life';
+			case 'mainScreen.setting': return 'Setting';
+			case 'mainScreen.achievements': return 'Achievement';
+			case 'settings.volume': return 'Volume';
+			case 'settings.languag': return 'Language';
 			default: return null;
 		}
 	}
@@ -214,6 +269,11 @@ extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
 			case 'common.loading': return 'Загрузка';
+			case 'mainScreen.play': return 'Новая жизнь';
+			case 'mainScreen.setting': return 'Настройки';
+			case 'mainScreen.achievements': return 'Достижения';
+			case 'settings.volume': return 'Громкость';
+			case 'settings.languag': return 'Язык';
 			default: return null;
 		}
 	}
