@@ -9,6 +9,8 @@ import '../../controllers/audio/sfx.dart';
 import '../../i18n/strings.g.dart';
 
 class MainMenu extends StatelessWidget {
+  const MainMenu({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(

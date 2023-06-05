@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class GameCard extends StatelessWidget {
   const GameCard({super.key});
@@ -9,7 +8,7 @@ class GameCard extends StatelessWidget {
     return Card(
       child: Container(
         // width: context.width * 0.5,
-        child: AspectRatio(
+        child: const AspectRatio(
           aspectRatio: 2 / 3,
           child: Card(
             elevation: 5,

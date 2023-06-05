@@ -21,8 +21,8 @@ CustomTransitionPage<T> buildMyTransition<T>({
       return _MyReveal(
         animation: animation,
         color: color,
-        child: child,
         direction: direction,
+        child: child,
       );
     },
     key: key,

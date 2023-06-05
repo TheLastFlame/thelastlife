@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 
@@ -9,6 +8,8 @@ import 'widgets/languag_toogle.dart';
 import 'widgets/theme_toogle.dart';
 
 class SettingsPage extends GetView<SettingsContoller> {
+  const SettingsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -38,7 +39,7 @@ class SettingsPage extends GetView<SettingsContoller> {
             Column(
               children: [
                 Text(t.settings.theme_mode ,  style: Theme.of(context).textTheme.headlineMedium,),
-                ThemeToggle(),
+                const ThemeToggle(),
               ],
             ),
             Column(
@@ -47,7 +48,7 @@ class SettingsPage extends GetView<SettingsContoller> {
                   t.settings.languag,
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                   child: LanguagToggle(),
                 ),

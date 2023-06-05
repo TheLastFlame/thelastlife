@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:thelastlife/controllers/audio/songs.dart';
 import 'package:thelastlife/controllers/settings_controller.dart';
 import 'package:thelastlife/routes.dart';
 

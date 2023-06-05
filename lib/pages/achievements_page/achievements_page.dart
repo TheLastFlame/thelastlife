@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
 import 'package:thelastlife/constants.dart';
@@ -9,6 +8,8 @@ import '../../i18n/strings.g.dart';
 
 class AchievementsPage extends GetView<void> {
   final ScrollController achievementsListScrollController = ScrollController();
+
+  AchievementsPage({super.key});
 
   
 
@@ -26,9 +27,9 @@ class AchievementsPage extends GetView<void> {
         body: Padding(
           padding: const EdgeInsets.only(left: appPadding , right: appPadding),
           child: ListView(
-            physics: ClampingScrollPhysics(),
+            physics: const ClampingScrollPhysics(),
             controller: achievementsListScrollController,
-            children: [
+            children: const [
               AchievementCard(),
               AchievementCard(),
               AchievementCard(),

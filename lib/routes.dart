@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:thelastlife/pages/game/main.dart';
-import 'package:thelastlife/pages/home.dart';
+import 'package:thelastlife/pages/game/game.dart';
 
-import 'package:get/get.dart';
-import 'package:go_router/go_router.dart';
 
 import 'pages/main_menu/main_menu.dart';
 import 'pages/achievements_page/achievements_page.dart';
@@ -25,14 +22,14 @@ final router = GoRouter(
           path: "/mainMenu",
           pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
-            child: MainMenu(),
+            child: const MainMenu(),
           ),
           routes: [
             GoRoute(
               path: "settings",
               pageBuilder: (context, state) => buildMyTransition<void>(
                 key: state.pageKey,
-                child: SettingsPage(),
+                child: const SettingsPage(),
                 color: Theme.of(context).colorScheme.background,
               ),
             ),
@@ -51,7 +48,7 @@ final router = GoRouter(
         GoRoute(path: "/game", 
         pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
-            child: LifePage(),
+            child: const LifePage(),
           ), 
         )
       

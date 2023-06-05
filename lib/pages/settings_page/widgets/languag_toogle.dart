@@ -5,9 +5,10 @@ import 'package:restart_app/restart_app.dart';
 
 import '../../../constants.dart';
 import '../../../controllers/settings_controller.dart';
-import '../../../i18n/strings.g.dart';
 
 class LanguagToggle extends GetView<SettingsContoller> {
+  const LanguagToggle({super.key});
+
   @override
   Widget build(BuildContext context) {
     // return Row(

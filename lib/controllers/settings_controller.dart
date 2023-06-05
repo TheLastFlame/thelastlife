@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:thelastlife/controllers/audio/audio_contoller.dart';
 
-import '../i18n/strings.g.dart';
 
 class SettingsContoller extends GetxController {
 
