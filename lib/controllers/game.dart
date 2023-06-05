@@ -5,7 +5,7 @@ import 'package:thelastlife/story/events.dart';
 
 class GameSession extends GetxService {
   var intelligence = 0.obs, health = 0.obs, mental = 0.obs;
-  var events = [].obs;
+  var events = <Event>[].obs;
   var Conditions = <Condition>[].obs;
 
   @override
