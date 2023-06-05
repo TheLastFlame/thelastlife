@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:thelastlife/controllers/game.dart';
+import 'package:thelastlife/story/events.dart';
 
 var horizontalCardScroll = 10000.0.obs;
 var verticalCardScroll = 0.0.obs;
@@ -91,49 +92,60 @@ class LifePage extends StatelessWidget {
                     ),
                   ),
                   CarouselSlider.builder(
-                      itemCount: controller.events.last.actions.length,
-
-                      options: CarouselOptions(
-                          // viewportFraction: 0.5,
-                          enableInfiniteScroll: false,
-                          onScrolled: (value) => horizontalCardScroll(value),
-                          height: context.height * 1.1),
-                      itemBuilder: (context, index, realIndex) {
-                        return CarouselSlider(
-                          disableGesture: true,
-                          options: CarouselOptions(
-                              onScrolled: (value) => verticalCardScroll(value),
-                              padEnds: false,
-                              // viewportFraction: 0.75,
-                              enableInfiniteScroll: false,
-                              scrollDirection: Axis.vertical),
-                          items: [
-                            SizedBox(
-                              height: context.height * 0.5,
+                    itemCount: controller.events().last.actions.length,
+                    options: CarouselOptions(
+                        // viewportFraction: 0.5,
+                        enableInfiniteScroll: false,
+                        onScrolled: (value) => horizontalCardScroll(value),
+                        height: context.height * 1.1),
+                    itemBuilder: (context, index, realIndex) {
+                      return CarouselSlider (
+                        disableGesture: true,
+                        options: CarouselOptions(
+                            onScrolled: (value) {
+                              verticalCardScroll(value);
+                              if (value! >= 1) {
+                                controller.events.add(allEvents.firstWhere(
+                                    (element) =>
+                                        element.id ==
+                                        controller.events.last.actions[index]
+                                            .addEventId));
+                              }
+                            },
+                            padEnds: false,
+                            // viewportFraction: 0.75,
+                            enableInfiniteScroll: false,
+                            scrollDirection: Axis.vertical),
+                        items: [
+                          SizedBox(
+                            height: context.height * 0.5,
+                          ),
+                          OverflowBox(
+                            maxHeight: context.width * 0.8 / 2 * 3,
+                            alignment: Alignment.topCenter,
+                            child: Column(
+                              children: [
+                                Obx(() => Padding(
+                                      padding: EdgeInsets.only(
+                                        top: 32 *
+                                            (realIndex - horizontalCardScroll())
+                                                .abs(),
+                                      ),
+                                      child: ActionCard(
+                                          index,
+                                          controller
+                                              .events.last.actions[index]),
+                                    )),
+                              ],
                             ),
-                            OverflowBox(
-                              maxHeight: context.width * 0.8 / 2 * 3,
-                              alignment: Alignment.topCenter,
-                              child: Column(
-                                children: [
-                                  Obx(() => Padding(
-                                        padding: EdgeInsets.only(
-                                          top: 32 *
-                                              (realIndex -
-                                                      horizontalCardScroll())
-                                                  .abs(),
-                                        ),
-                                        child: ActionCard(index, controller.events.last.actions[index]),
-                                      )),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              height: context.height * 0.55,
-                            ),
-                          ],
-                        );
-                      })
+                          ),
+                          SizedBox(
+                            height: context.height * 0.55,
+                          ),
+                        ],
+                      );
+                    },
+                  )
                 ],
               ),
             ),
@@ -198,8 +210,8 @@ class ActionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Container(
-      transform: Matrix4.rotationZ( (index - horizontalCardScroll()) * 0.3),
-      child: Card(
+          transform: Matrix4.rotationZ((index - horizontalCardScroll()) * 0.3),
+          child: Card(
             elevation: 4,
             color: context.theme.colorScheme.secondaryContainer,
             child: SizedBox(
@@ -208,14 +220,15 @@ class ActionCard extends StatelessWidget {
               height: lerp(context.width * 0.8 / 2 * 3, context.height * 0.5,
                   verticalCardScroll()),
               child: Padding(
-                padding: const EdgeInsets.all(24.0),
+                padding: const EdgeInsets.all(32.0),
                 child: Text(
                   action.name,
+                  style: context.textTheme.titleMedium,
                   textAlign: TextAlign.center,
                 ),
               ),
             ),
           ),
-    ));
+        ));
   }
 }
