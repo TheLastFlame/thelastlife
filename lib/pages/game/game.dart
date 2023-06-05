@@ -91,7 +91,8 @@ class LifePage extends StatelessWidget {
                     ),
                   ),
                   CarouselSlider.builder(
-                      itemCount: controller.events.length,
+                      itemCount: controller.events.last.actions.length,
+
                       options: CarouselOptions(
                           // viewportFraction: 0.5,
                           enableInfiniteScroll: false,
@@ -122,7 +123,7 @@ class LifePage extends StatelessWidget {
                                                       horizontalCardScroll())
                                                   .abs(),
                                         ),
-                                        child: ActionCard(index),
+                                        child: ActionCard(index, controller.events.last.actions[index]),
                                       )),
                                 ],
                               ),
@@ -154,11 +155,12 @@ class EventText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Event event = Get.find<GameSession>().events.last;
     return Container(
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Text(
-          'Тут какое-то очень длинное описание карточки',
+          event.description,
           style: context.textTheme.titleLarge,
           textAlign: TextAlign.center,
         ),
@@ -174,12 +176,14 @@ class EventCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Event event = Get.find<GameSession>().events.last;
     return AspectRatio(
       aspectRatio: 2 / 3,
       child: Card(
         color: context.theme.colorScheme.secondaryContainer,
         child: Card(
           elevation: 0,
+          child: Center(child: Text(event.name)),
         ),
       ),
     );
@@ -188,7 +192,8 @@ class EventCard extends StatelessWidget {
 
 class ActionCard extends StatelessWidget {
   final int index;
-  const ActionCard(this.index, {super.key});
+  final ActionModel action;
+  const ActionCard(this.index, this.action, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +210,7 @@ class ActionCard extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(24.0),
                 child: Text(
-                  'А тут что-то вроде действий xD',
+                  action.name,
                   textAlign: TextAlign.center,
                 ),
               ),
